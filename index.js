@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Modal } from 'react-native';
+import { View, StyleSheet, Modal,Platform,Dimensions } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { Header } from './components/Header';
 import Progress from './components/Progress';
@@ -78,6 +78,23 @@ const BeautyWebView = ({
       setCurrentUrl(url);
     }, 200);
   } 
+  
+const  isIphoneXSize=(dim)=>{
+  return dim.height == 812 || dim.width == 812
+}
+
+const  isIphoneXrSize=(dim)=>{
+  return dim.height == 896 || dim.width == 896
+}
+
+
+
+  const  isIphoneX = () =>{
+    const dim = Dimensions.get('window');
+    return (
+        Platform.OS ==='ios' && (isIphoneXSize(dim) || isIphoneXrSize(dim))
+    );
+}
 
   return (
     <Modal visible={visible} transparent={false} animationType={animationType}>
@@ -127,6 +144,7 @@ const BeautyWebView = ({
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop:isIphoneX() ? 50: (Platform.OS==='ios' ? 10: 0),
     flex: 1,
     alignSelf: 'stretch',
   },
