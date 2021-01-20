@@ -4,7 +4,6 @@ import { WebView } from 'react-native-webview';
 import { Header } from './components/Header';
 import Progress from './components/Progress';
 import { colors } from './res';
-
 const BeautyWebView = ({
   visible,
   onPressClose,
@@ -79,22 +78,7 @@ const BeautyWebView = ({
     }, 200);
   } 
   
-const  isIphoneXSize=(dim)=>{
-  return dim.height == 812 || dim.width == 812
-}
 
-const  isIphoneXrSize=(dim)=>{
-  return dim.height == 896 || dim.width == 896
-}
-
-
-
-  const  isIphoneX = () =>{
-    const dim = Dimensions.get('window');
-    return (
-        Platform.OS ==='ios' && (isIphoneXSize(dim) || isIphoneXrSize(dim))
-    );
-}
 
   return (
     <Modal visible={visible} transparent={false} animationType={animationType}>
@@ -141,10 +125,11 @@ const  isIphoneXrSize=(dim)=>{
     </Modal>
   );
 };
+const dim = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
- 
+    paddingTop:Platform.OS ==='ios' && ( dim.height == 812 || dim.width == 812 || dim.height == 896 || dim.width == 896) ? 50: (Platform.OS==='ios' ? 10: 0),
     flex: 1,
     alignSelf: 'stretch',
   },
