@@ -144,7 +144,7 @@ const  isIphoneXrSize=(dim)=>{
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:isIphoneX() ? 50: (Platform.OS==='ios' ? 10: 0),
+ 
     flex: 1,
     alignSelf: 'stretch',
   },
