@@ -129,7 +129,7 @@ const dim = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:Platform.OS ==='ios' && ( dim.height == 812 || dim.width == 812 || dim.height == 896 || dim.width == 896) ? 50: (Platform.OS==='ios' ? 10: 0),
+    paddingTop:Platform.OS ==='ios' && ( dim.height == 812 || dim.width == 812 || dim.height == 896 || dim.width == 896) ? 30: (Platform.OS==='ios' ? 10: 0),
     flex: 1,
     alignSelf: 'stretch',
   },
